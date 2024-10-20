@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+<link rel="stylesheet" href="{% static 'pages/style.css' %}">
+    <title>Product Info Extractor</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; padding: 50px; }
+        input[type="text"], button { width: 100%; padding: 10px; margin-top: 10px; }
+        .result { margin-top: 20px; padding: 20px; background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <!-- <div class="container"> -->
+    <h1>Product Info Extractor</h1>
+    <form id="extract-form" action="" method="get" >
+        <input type="text" id="url" name="url" placeholder="Enter URL here" required>
+        <button type="submit">Extract Info</button>
+    </form>
+    <form id="result-form">
+        <textarea id="result" name="result" rows="10" style="width: 100%">{{ result }}</textarea>
+    </form>
+    <!-- </div> -->
+
+</body>
+</html>
