@@ -3,12 +3,13 @@ from django.http import HttpResponse
 import requests
 from bs4 import BeautifulSoup
 import re
+from .services import predict_entities
 
 # Create your views here.
 # def home_page_view(request):
 #     return HttpResponse("Hello, World!")
+
 def get_english_words_from_url(url):
-    # Send a request to the URL
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
     text = soup.get_text()
@@ -21,6 +22,7 @@ def get_url_info_view(request):
     result = ""
     if request.method == 'GET' and 'url' in request.GET:
         input_url = request.GET.get('url')
-        result = get_english_words_from_url(input_url)
-
-    return render(request, 'pages/index.html', {'result' : result})
+        words = get_english_words_from_url(input_url)
+        text_from_url = ' '.join(words)
+        result = predict_entities(text_from_url)
+    return render(request, 'pages/index.html', {'entities' : set(result)})
