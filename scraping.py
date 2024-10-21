@@ -137,11 +137,11 @@ def get_product_data(url):
 
 
     #product url
-    product_url_tag = soup.find('meta', property='og:url')
-    if product_url_tag:
-        product_url = product_url_tag['content']
-    else:
-        product_url = url  # If no meta tag, use the URL passed to the function
+    # product_url_tag = soup.find('meta', property='og:url')
+    # if product_url_tag:
+    #     product_url = product_url_tag['content']
+    # else:
+    #     product_url = url  # If no meta tag, use the URL passed to the function
 
     # #image url
     # image_url_tag = soup.find('meta', property='og:image')
@@ -170,7 +170,7 @@ def get_product_data(url):
         "sku": sku,
         "price": price,
         "currency": currency,
-        "url": product_url,
+        #"url": product_url,
         #"image_url": image_url
     }
 
